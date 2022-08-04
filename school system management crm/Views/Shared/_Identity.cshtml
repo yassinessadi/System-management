@@ -1,0 +1,48 @@
+﻿@inject UserManager<ApplicationUser> usermanger;
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <a class="dropdown-item d-flex align-items-center" asp-action="Create" asp-controller="Home">
+        <div class="font-weight-bold">
+            <div class="text-truncate">
+                Add
+            </div>
+            <div class="small text-gray-500">Create new Employee</div>
+        </div>
+    </a>
+    <a class="dropdown-item d-flex align-items-center" asp-action="Index" asp-controller="Departements">
+        <div>
+            <div class="text-truncate">
+                Departement
+            </div>
+            <!--<div class="small text-gray-500">Jae Chun · 1d</div>-->
+        </div>
+    </a>
+}
+@if (!User.Identity.IsAuthenticated)
+{
+    <a class="dropdown-item d-flex align-items-center" asp-action="Login" asp-controller="Account">
+        <div>
+            <div class="text-truncate">
+                Login
+            </div>
+            <!--<div class="small text-gray-500">Jae Chun · 1d</div>-->
+        </div>
+    </a>
+
+}
+else
+{
+    <a class="dropdown-item d-flex align-items-center" asp-action="Logout" asp-controller="Account">
+        <div>
+
+            <div class="font-weight-bold">
+                <div class="text-truncate">
+                    Hello <span class="text-primary">@usermanger.GetUserName(User)</span>
+                </div>
+                <div class="small text-gray-500">Logout</div>
+            </div>
+            <!--<div class="small text-gray-500">Jae Chun · 1d</div>-->
+        </div>
+    </a>
+}

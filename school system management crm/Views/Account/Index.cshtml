@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ApplicationUser>
+
+@{ 
+    ViewData["Title"] = "List of users";
+}
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email Address</th>
+            <th>User Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FullName</td>
+                <td>@item.Email</td>
+                <td>@item.UserName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+ 

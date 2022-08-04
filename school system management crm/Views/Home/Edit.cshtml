@@ -1,0 +1,45 @@
+﻿@model EmpolyeeVM
+@{
+    ViewData["Title"] = "Edit Empolee";
+}
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="form-label">Empolyee Name</label>
+                <input class="form-control" asp-for="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="form-label">Address</label>
+                <input class="form-control" asp-for="Address" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="form-label">Salary</label>
+                <input class="form-control" asp-for="Salary" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="form-label">Start date</label>
+                <input type="date" class="form-control" asp-for="StartDate" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="form-label">End date</label>
+                <input type="date" class="form-control" asp-for="EndDate" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartmentId" class="form-label">Department Name</label>
+                <select class="form-control" asp-for="DepartmentId" asp-items="ViewBag.DepartementId"></select>
+                <span asp-validation-for="DepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-primary">Show All</a>
+                <input type="submit" class="btn btn-success float-right" value="Edit" />
+            </div>
+        </form>
+    </div>
+</div>

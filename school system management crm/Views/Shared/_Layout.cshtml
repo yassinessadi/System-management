@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - System Management Employee</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+            <!-- Sidebar Toggle (Topbar) -->
+            <form class="form-inline">
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </form>
+
+            <!-- Topbar Search -->
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <input type="text" name="SearchString" class="form-control bg-light border-0 small" placeholder="Search for..."
+                           aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit" asp-action="Filter" asp-controller="Home">
+                            Filter
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+
+                <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                <li class="nav-item dropdown no-arrow d-sm-none">
+                    <a class="nav-link dropdown-toggle" id="searchDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </a>
+                    <!-- Dropdown - Messages -->
+                    <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                         aria-labelledby="searchDropdown">
+                        <form class="form-inline mr-auto w-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-light border-0 small"
+                                       placeholder="Search for..." aria-label="Search"
+                                       aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        Filter
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+
+                <!-- Nav Item - Management -->
+                <li class="nav-item dropdown no-arrow mx-1">
+                    <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @*<i class="fas fa-envelope fa-fw"></i>*@
+                        <!-- Counter - Messages -->
+                        <span class="badge badge-danger badge-counter"><i class="bi bi-gear"></i></span>
+                    </a>
+                    <!-- Dropdown - Messages -->
+                    <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                         aria-labelledby="messagesDropdown">
+                        <h6 class="dropdown-header">
+                            Management
+                        </h6>
+                        <partial name="_Identity"/>
+                    </div>
+                </li>
+
+                <!-- Nav Item - User Information -->
+
+            </ul>
+
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Essadi 2022</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

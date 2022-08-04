@@ -1,0 +1,20 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "Add new Departement";
+}
+<div class="row">
+    <div class="col-md-6 offset-3">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="form-label">Departement Name</label>
+                <input class="form-control" asp-for="Name" readonly/>
+            </div>
+            <div class="form-group">
+                <form asp-action="Delete">
+                    <a asp-action="Index" class="btn btn-primary">Show All</a>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" class="btn btn-danger float-right" value="Confirm Delete" />
+                </form>
+            </div>
+    </div>
+</div>

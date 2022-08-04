@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Employee>
+<!-- Content Wrapper -->
+<div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+        <!-- End of Topbar -->
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Employee Departement -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary text-center">Employee Departement</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Salary</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Departement</th>
+                                    <th>Management</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Address</td>
+                        <td>@item.Salary</td>
+                        <td>@item.StartDate.ToString("yyyy/MM/dd")</td>
+                        <td>@item.EndDate.ToString("yyyy/MM/dd")</td>
+                        <td>@item.Department.Name</td>
+                        <td class="text-center">
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.Id" class=" btn btn-primary">
+                                    Edit
+                                </a>
+                            }
+                        </td>
+                    </tr>
+}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+    <!-- Footer -->
